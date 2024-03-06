@@ -9,8 +9,8 @@ let answerThree = document.getElementById('answer3');
 let answerFour = document.getElementById('answer4');
 
 //Choices text
-let answerOneTxt = document.getElementById('answer1txt'); 
-let answerTwoTxt = document.getElementById('answer2txt'); 
+let answerOneTxt = document.getElementById('answer1txt');
+let answerTwoTxt = document.getElementById('answer2txt');
 let answerThreeTxt = document.getElementById('answer3txt');
 let answerFourTxt = document.getElementById('answer4txt');
 
@@ -23,6 +23,36 @@ let pagedisable = 0; //Disables the ability to select multiple answers
 moveBtn.style.display = 'none';
 playBtn.style.display = 'none';
 
+//=====Create new page====
+class pageCreation {
+  constructor(
+    quizProgress,
+    quizPara,
+    answerOne,
+    answerTwo,
+    answerThree,
+    answerFour
+  ) {
+    this.quizProgress = quizProgress;
+    this.quizPara = quizPara;
+    this.answerOne = answerOne;
+    this.answerTwo = answerTwo;
+    this.answerThree = answerThree;
+    this.answerFour = answerFour;
+  }
+
+  updatePage() {
+    questionProgress.innerText = this.quizProgress;
+    questionPara.innerText = this.quizPara;
+
+    answerOneTxt.innerText = this.answerOne;
+    answerTwoTxt.innerText = this.answerTwo;
+    answerThreeTxt.innerText = this.answerThree;
+    answerFourTxt.innerText = this.answerFour;
+  }
+}
+
+//===Answer events===
 answerOne.addEventListener('click', function () {
   moveBtn.style.display = 'flex';
   moveBtn.classList.remove('transition');
@@ -183,110 +213,49 @@ const nextPage = () => {
     case 1:
       questionPage++;
 
-      questionProgress.innerText = 'Question 2 of 5';
-      questionPara.innerText = 'What is the opposite of an utopia?';
+      const questionPageOne = new pageCreation(
+        'Question 2 of 5',
+        'What is the opposite of an utopia?',
+        'Egalitarianism',
+        'Megatopia',
+        'Distopia',
+        'Supertopia'
+      );
 
-      answerOneTxt.innerText = 'Egalitarianism';
-      answerTwoTxt.innerText = 'Megatopia';
-      answerThreeTxt.innerText = 'Distopia';
-      answerFourTxt.innerText = 'Supertopia';
-
-      answerOne.style.borderColor = 'transparent';
-      answerTwo.style.borderColor = 'transparent';
-      answerThree.style.borderColor = 'transparent';
-      answerFour.style.borderColor = 'transparent';
-
-      answerOne.style.backgroundColor = '#2e3856';
-      answerTwo.style.backgroundColor = '#2e3856';
-      answerThree.style.backgroundColor = '#2e3856';
-      answerFour.style.backgroundColor = '#2e3856';
+      clearBoard();
+      questionPageOne.updatePage();
       break;
     case 2:
       questionPage++;
 
-      questionProgress.innerText = 'Question 3 of 5';
-      questionPara.innerText =
-        'What TV show takes place in the fictional city of Bedrock?';
+      const questionPageThree = new pageCreation('Question 3 of 5', 'What TV show takes place in the fictional city of Bedrock?', 'Family guy', 'The simpsons', 'Rick and morty');
 
-      answerOneTxt.innerText = 'Family guy';
-      answerTwoTxt.innerText = 'The flintstones';
-      answerThreeTxt.innerText = 'The simpsons';
-      answerFourTxt.innerText = 'Rick and morty';
-
-      answerOne.style.borderColor = 'transparent';
-      answerTwo.style.borderColor = 'transparent';
-      answerThree.style.borderColor = 'transparent';
-      answerFour.style.borderColor = 'transparent';
-
-      answerOne.style.backgroundColor = '#2e3856';
-      answerTwo.style.backgroundColor = '#2e3856';
-      answerThree.style.backgroundColor = '#2e3856';
-      answerFour.style.backgroundColor = '#2e3856';
+      clearBoard();
+      questionPageThree.updatePage();
       break;
     case 3:
       questionPage++;
 
-      questionProgress.innerText = 'Question 4 of 5';
-      questionPara.innerText = 'What did the Romans call Scotland?';
+      const questionPageFour = new pageCreation('Question 4 of 5', 'What did the Romans call Scotland?', 'Scotland', 'Britian', 'New rome', 'Caledonia');
 
-      answerOneTxt.innerText = 'Scotland';
-      answerTwoTxt.innerText = 'Britian';
-      answerThreeTxt.innerText = 'New rome';
-      answerFourTxt.innerText = 'Caledonia';
-
-      answerOne.style.borderColor = 'transparent';
-      answerTwo.style.borderColor = 'transparent';
-      answerThree.style.borderColor = 'transparent';
-      answerFour.style.borderColor = 'transparent';
-
-      answerOne.style.backgroundColor = '#2e3856';
-      answerTwo.style.backgroundColor = '#2e3856';
-      answerThree.style.backgroundColor = '#2e3856';
-      answerFour.style.backgroundColor = '#2e3856';
+      clearBoard();
+      questionPageFour.updatePage();
       break;
     case 4:
       questionPage++;
 
-      questionProgress.innerText = 'Question 5 of 5';
-      questionPara.innerText =
-        'The Black Forest is located in what European country?';
+      const questionPageFive = new pageCreation('Question 5 of 5', 'The Black Forest is located in what European country?', 'Germany', 'Poland', 'Russia', 'Norway');
 
-      answerOneTxt.innerText = 'Germany';
-      answerTwoTxt.innerText = 'Poland';
-      answerThreeTxt.innerText = 'Russia';
-      answerFourTxt.innerText = 'Norway';
-
-      answerOne.style.borderColor = 'transparent';
-      answerTwo.style.borderColor = 'transparent';
-      answerThree.style.borderColor = 'transparent';
-      answerFour.style.borderColor = 'transparent';
-
-      answerOne.style.backgroundColor = '#2e3856';
-      answerTwo.style.backgroundColor = '#2e3856';
-      answerThree.style.backgroundColor = '#2e3856';
-      answerFour.style.backgroundColor = '#2e3856';
+      clearBoard();
+      questionPageFive.updatePage();
       break;
     case 5:
       questionPage++;
 
-      questionProgress.innerText = 'Question 5 of 5';
-      questionPara.innerText =
-        'The Black Forest is located in what European country?';
+      const questionPageFiveBack = new pageCreation('Question 5 of 5', 'The Black Forest is located in what European country?', 'Germany', 'Poland', 'Russia', 'Norway')
 
-      answerOneTxt.innerText = 'Germany';
-      answerTwoTxt.innerText = 'Poland';
-      answerThreeTxt.innerText = 'Russia';
-      answerFourTxt.innerText = 'Norway';
-
-      answerOne.style.borderColor = 'transparent';
-      answerTwo.style.borderColor = 'transparent';
-      answerThree.style.borderColor = 'transparent';
-      answerFour.style.borderColor = 'transparent';
-
-      answerOne.style.backgroundColor = '#2e3856';
-      answerTwo.style.backgroundColor = '#2e3856';
-      answerThree.style.backgroundColor = '#2e3856';
-      answerFour.style.backgroundColor = '#2e3856';
+      clearBoard();
+      questionPageFiveBack.updatePage();
       break;
     case 6:
       questionProgress.innerText = 'Finished!';
@@ -327,28 +296,16 @@ playBtn.addEventListener('click', function () {
 
   playBtn.style.display = 'none';
 
-  questionProgress.innerText = 'Question 1 of 5';
-  questionPara.innerText = 'Who was the first u.s president?';
 
-  answerOneTxt.innerText = 'Washington';
-  answerTwoTxt.innerText = 'Adams';
-  answerThreeTxt.innerText = 'Biden';
-  answerFourTxt.innerText = 'Grant';
-
-  answerOne.style.borderColor = 'transparent';
-  answerTwo.style.borderColor = 'transparent';
-  answerThree.style.borderColor = 'transparent';
-  answerFour.style.borderColor = 'transparent';
-
-  answerOne.style.backgroundColor = '#2e3856';
-  answerTwo.style.backgroundColor = '#2e3856';
-  answerThree.style.backgroundColor = '#2e3856';
-  answerFour.style.backgroundColor = '#2e3856';
+  const questionPageOne = new pageCreation('Question 1 of 5', 'Who was the first u.s president?', 'Washington', 'Adams', 'Biden', 'Grant')
 
   answerOne.style.display = 'flex';
   answerTwo.style.display = 'flex';
   answerThree.style.display = 'flex';
   answerFour.style.display = 'flex';
+
+  clearBoard();
+  questionPageOne.updatePage();
 });
 
 //Changes the border color of the answer buttons
@@ -385,4 +342,17 @@ const correctAnswer = () => {
       answerFour.style.borderColor = '#db3a04';
       break;
   }
+};
+
+//Resets the quiz page
+const clearBoard = () => {
+  answerOne.style.borderColor = 'transparent';
+  answerTwo.style.borderColor = 'transparent';
+  answerThree.style.borderColor = 'transparent';
+  answerFour.style.borderColor = 'transparent';
+
+  answerOne.style.backgroundColor = '#2e3856';
+  answerTwo.style.backgroundColor = '#2e3856';
+  answerThree.style.backgroundColor = '#2e3856';
+  answerFour.style.backgroundColor = '#2e3856';
 };
